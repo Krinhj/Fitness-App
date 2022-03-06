@@ -1,0 +1,77 @@
+#:kivy 1.0
+WindowManager:
+    HomePage:
+    SecondPage:
+    ThirdPage:
+
+<HomePage>:
+    name: "home"
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: "Welcome!"
+            font_size: 64
+
+        Button:
+            text: "Start"
+            font_size: 32
+            size: "100dp", "200dp"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+
+<SecondPage>:
+    name: "second"
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: "How often do you work out?"
+            font_size: 32
+
+        Button:
+            text: "Back"
+            font_size: 32
+            on_release: 
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+        Button:
+            text: "Next"
+            font_size: 32
+            on_release: 
+                app.root.current = "third"
+                root.manager.transition.direction = "left"
+
+<ThirdPage>:
+    name: "third"
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: "Let me know about you."
+            font_size: 32
+
+        Button:
+            text: "Back"
+            font_size: 32
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "right"
+
+        Button:
+            text: "Next"
+            font_size: 32
+            on_release: 
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+
+
